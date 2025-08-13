@@ -1,0 +1,1 @@
+pedras = ['Runi','Esmerlada','Quartzo','Safira','Diamante','Turmalina ']
