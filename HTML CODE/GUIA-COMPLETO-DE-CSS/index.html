@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo para Dominar CSS</title>
+    <style>
+        :root {
+            --primary: #2980b9;
+            --secondary: #8e44ad;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .progress-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
+        }
+        
+        .progress-container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 90%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            width: 0%;
+            transition: width 0.7s ease;
+            position: relative;
+        }
+        
+        .progress::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .topic-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+        
+        .topic-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+        }
+        
+        .topic-card h3::before {
+            content: "{}";
+            color: var(--primary);
+            margin-right: 0.7rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        
+        .topic-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .topic-card li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed #f0f0f0;
+            transition: all 0.2s ease;
+        }
+        
+        .topic-card li:hover {
+            background-color: #f9f9f9;
+            padding-left: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .topic-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .topic-card li::before {
+            content: "✓";
+            color: var(--success);
+            margin-right: 0.7rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .level {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-left: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .beginner {
+            background-color: #e1f5fe;
+            color: #01579b;
+            border: 1px solid #b3e5fc;
+        }
+        
+        .intermediate {
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .advanced {
+            background-color: #fce4ec;
+            color: #880e4f;
+            border: 1px solid #f8bbd9;
+        }
+        
+        .expert {
+            background-color: #fff3e0;
+            color: #e65100;
+            border: 1px solid #ffe0b2;
+        }
+        
+        .checkbox {
+            margin-right: 0.8rem;
+            cursor: pointer;
+            transform: scale(1.2);
+            accent-color: var(--primary);
+        }
+        
+        .resources {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .resources h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.7rem;
+            font-size: 1.8rem;
+        }
+        
+        .resources ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .resources li {
+            padding: 0.8rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        
+        .resources li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .resources a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resources a::before {
+            content: "→";
+            margin-right: 0.5rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .resources a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--dark), #34495e);
+            color: white;
+            margin-top: 3rem;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .motivation {
+            font-style: italic;
+            margin-top: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .resources ul {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Efeitos especiais para CSS */
+        .css-demo {
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: pulse 4s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guia Completo para Dominar CSS</h1>
+        <p class="subtitle">Tudo que você precisa aprender, desde fundamentos até técnicas avançadas de estilização web</p>
+        <div class="css-demo">CSS é poder! ✨</div>
+    </header>
+    
+    <div class="container">
+        <div class="progress-container">
+            <h2>Seu Progresso no Domínio do CSS</h2>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <div class="progress-text">
+                <span id="progress-text">0% Concluído</span>
+                <span id="completed-count">0/115 tópicos</span>
+            </div>
+        </div>
+        
+        <div class="topics-grid">
+            <!-- Fundamentos do CSS -->
+            <div class="topic-card">
+                <h3>Fundamentos do CSS <span class="level beginner">Iniciante</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> O que é CSS e como funciona com HTML</li>
+                    <li><input type="checkbox" class="checkbox"> Sintaxe CSS: seletores, propriedades, valores</li>
+                    <li><input type="checkbox" class="checkbox"> Formas de aplicar CSS (inline, interno, externo)</li>
+                    <li><input type="checkbox" class="checkbox"> Seletores básicos (elemento, classe, ID)</li>
+                    <li><input type="checkbox" class="checkbox"> Especificidade e cascata</li>
+                    <li><input type="checkbox" class="checkbox"> Comentários em CSS</li>
+                    <li><input type="checkbox" class="checkbox"> Box Model: margin, padding, border</li>
+                    <li><input type="checkbox" class="checkbox"> Cores (nomes, HEX, RGB, HSL)</li>
+                    <li><input type="checkbox" class="checkbox"> Unidades de medida (px, em, rem, %, vw/vh)</li>
+                </ul>
+            </div>
+            
+            <!-- Seletores Avançados -->
+            <div class="topic-card">
+                <h3>Seletores Avançados <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Seletores de atributo</li>
+                    <li><input type="checkbox" class="checkbox"> Pseudo-classes (:hover, :focus, :nth-child)</li>
+                    <li><input type="checkbox" class="checkbox"> Pseudo-elementos (::before, ::after)</li>
+                    <li><input type="checkbox" class="checkbox"> Seletores de combinação (descendente, filho, adjacente)</li>
+                    <li><input type="checkbox" class="checkbox"> Seletores de grupo</li>
+                    <li><input type="checkbox" class="checkbox"> :not() seletor de negação</li>
+                    <li><input type="checkbox" class="checkbox"> Seletores estruturais (:first-of-type, :last-child)</li>
+                </ul>
+            </div>
+            
+            <!-- Layout e Posicionamento -->
+            <div class="topic-card">
+                <h3>Layout e Posicionamento <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Display (block, inline, inline-block, none)</li>
+                    <li><input type="checkbox" class="checkbox"> Position (static, relative, absolute, fixed, sticky)</li>
+                    <li><input type="checkbox" class="checkbox"> Flexbox (container e itens)</li>
+                    <li><input type="checkbox" class="checkbox"> CSS Grid (grid container e grid items)</li>
+                    <li><input type="checkbox" class="checkbox"> Floats e clearfix</li>
+                    <li><input type="checkbox" class="checkbox"> Z-index e contexto de empilhamento</li>
+                    <li><input type="checkbox" class="checkbox"> Multicolumn layout</li>
+                    <li><input type="checkbox" class="checkbox"> Table layout</li>
+                </ul>
+            </div>
+            
+            <!-- Tipografia e Texto -->
+            <div class="topic-card">
+                <h3>Tipografia e Texto <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Propriedades de fonte (font-family, size, weight)</li>
+                    <li><input type="checkbox" class="checkbox"> Google Fonts e fontes customizadas</li>
+                    <li><input type="checkbox" class="checkbox"> Propriedades de texto (align, decoration, transform)</li>
+                    <li><input type="checkbox" class="checkbox"> Espaçamento (line-height, letter-spacing)</li>
+                    <li><input type="checkbox" class="checkbox"> Sombra de texto (text-shadow)</li>
+                    <li><input type="checkbox" class="checkbox"> Quebra de texto e overflow</li>
+                    <li><input type="checkbox" class="checkbox"> Direção de texto e writing-mode</li>
+                    <li><input type="checkbox" class="checkbox"> Variáveis de fonte (font-variant)</li>
+                </ul>
+            </div>
+            
+            <!-- Cores e Fundos -->
+            <div class="topic-card">
+                <h3>Cores e Fundos <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Gradientes (linear, radial, conic)</li>
+                    <li><input type="checkbox" class="checkbox"> Imagens de fundo (background-image)</li>
+                    <li><input type="checkbox" class="checkbox"> Propriedades de fundo (size, position, repeat)</li>
+                    <li><input type="checkbox" class="checkbox"> Múltiplos fundos</li>
+                    <li><input type="checkbox" class="checkbox"> Background blend modes</li>
+                    <li><input type="checkbox" class="checkbox"> Cores transparentes (RGBA, HSLA)</li>
+                    <li><input type="checkbox" class="checkbox"> currentColor keyword</li>
+                    <li><input type="checkbox" class="checkbox"> System colors</li>
+                </ul>
+            </div>
+            
+            <!-- Animações e Transições -->
+            <div class="topic-card">
+                <h3>Animações e Transições <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Transitions (property, duration, timing-function)</li>
+                    <li><input type="checkbox" class="checkbox"> Animations (@keyframes)</li>
+                    <li><input type="checkbox" class="checkbox"> Transformações (translate, rotate, scale, skew)</li>
+                    <li><input type="checkbox" class="checkbox"> Transform-style e perspective</li>
+                    <li><input type="checkbox" class="checkbox"> Animation-fill-mode</li>
+                    <li><input type="checkbox" class="checkbox"> Timing functions (ease, linear, cubic-bezier)</li>
+                    <li><input type="checkbox" class="checkbox"> Animation performance</li>
+                </ul>
+            </div>
+            
+            <!-- Responsive Design -->
+            <div class="topic-card">
+                <h3>Design Responsivo <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Media Queries (min-width, max-width)</li>
+                    <li><input type="checkbox" class="checkbox"> Breakpoints e estratégias</li>
+                    <li><input type="checkbox" class="checkbox"> Viewport meta tag</li>
+                    <li><input type="checkbox" class="checkbox"> Unidades responsivas (vw, vh, vmin, vmax)</li>
+                    <li><input type="checkbox" class="checkbox"> Imagens responsivas</li>
+                    <li><input type="checkbox" class="checkbox"> Mobile-first vs Desktop-first</li>
+                    <li><input type="checkbox" class="checkbox"> CSS Grid e Flexbox para layouts responsivos</li>
+                    <li><input type="checkbox" class="checkbox"> Feature queries (@supports)</li>
+                </ul>
+            </div>
+            
+            <!-- CSS Avançado -->
+            <div class="topic-card">
+                <h3>CSS Avançado <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Variáveis CSS (Custom Properties)</li>
+                    <li><input type="checkbox" class="checkbox"> Calc() function</li>
+                    <li><input type="checkbox" class="checkbox"> Clip-path e shape-outside</li>
+                    <li><input type="checkbox" class="checkbox"> Filter effects (blur, grayscale, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Blend modes (mix-blend-mode, background-blend-mode)</li>
+                    <li><input type="checkbox" class="checkbox"> Masking e clipping</li>
+                    <li><input type="checkbox" class="checkbox"> CSS Houdini (Paint API, Properties & Values API)</li>
+                    <li><input type="checkbox" class="checkbox"> Container Queries</li>
+                </ul>
+            </div>
+            
+            <!-- Metodologias e Arquitetura -->
+            <div class="topic-card">
+                <h3>Metodologias e Arquitetura <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> BEM (Block, Element, Modifier)</li>
+                    <li><input type="checkbox" class="checkbox"> SMACSS (Scalable and Modular Architecture)</li>
+                    <li><input type="checkbox" class="checkbox"> OOCSS (Object-Oriented CSS)</li>
+                    <li><input type="checkbox" class="checkbox"> ITCSS (Inverted Triangle CSS)</li>
+                    <li><input type="checkbox" class="checkbox"> CSS-in-JS (Styled Components, Emotion)</li>
+                    <li><input type="checkbox" class="checkbox"> Design Systems com CSS</li>
+                    <li><input type="checkbox" class="checkbox"> CSS Modules</li>
+                    <li><input type="checkbox" class="checkbox"> Utility-first CSS (Tailwind)</li>
+                </ul>
+            </div>
+            
+            <!-- Performance e Otimização -->
+            <div class="topic-card">
+                <h3>Performance e Otimização <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Critical CSS</li>
+                    <li><input type="checkbox" class="checkbox"> Minificação e compressão</li>
+                    <li><input type="checkbox" class="checkbox"> CSS delivery optimization</li>
+                    <li><input type="checkbox" class="checkbox"> Reducing CSS specificity</li>
+                    <li><input type="checkbox" class="checkbox"> Efficient selectors</li>
+                    <li><input type="checkbox" class="checkbox"> Hardware acceleration</li>
+                    <li><input type="checkbox" class="checkbox"> Will-change property</li>
+                    <li><input type="checkbox" class="checkbox"> CSS containment</li>
+                </ul>
+            </div>
+            
+            <!-- Pré-processadores -->
+            <div class="topic-card">
+                <h3>Pré-processadores <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Sass/SCSS (instalação e configuração)</li>
+                    <li><input type="checkbox" class="checkbox"> Variáveis em pré-processadores</li>
+                    <li><input type="checkbox" class="checkbox"> Nesting (aninhamento)</li>
+                    <li><input type="checkbox" class="checkbox"> Mixins e funções</li>
+                    <li><input type="checkbox" class="checkbox"> Herança (@extend)</li>
+                    <li><input type="checkbox" class="checkbox"> Operações e condicionais</li>
+                    <li><input type="checkbox" class="checkbox"> Loops e each</li>
+                    <li><input type="checkbox" class="checkbox"> Less e Stylus (alternativas)</li>
+                </ul>
+            </div>
+            
+            <!-- Acessibilidade -->
+            <div class="topic-card">
+                <h3>Acessibilidade (A11y) <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Contrastes de cor adequados</li>
+                    <li><input type="checkbox" class="checkbox"> Focus styles</li>
+                    <li><input type="checkbox" class="checkbox"> Reduced motion media query</li>
+                    <li><input type="checkbox" class="checkbox"> Screen reader only content</li>
+                    <li><input type="checkbox" class="checkbox"> High contrast mode</li>
+                    <li><input type="checkbox" class="checkbox"> Font size and readability</li>
+                    <li><input type="checkbox" class="checkbox"> Accessible animations</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="resources">
+            <h2>Recursos Recomendados para Aprender CSS</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">MDN Web Docs - CSS</a> - Documentação completa</li>
+                <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a> - Tutoriais e guias</li>
+                <li><a href="https://web.dev/learn/css/" target="_blank">Google Web Fundamentals - CSS</a> - Curso gratuito</li>
+                <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools CSS Tutorial</a> - Tutoriais interativos</li>
+                <li><a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> - Jogo para aprender Flexbox</li>
+                <li><a href="https://cssgridgarden.com/" target="_blank">Grid Garden</a> - Jogo para aprender CSS Grid</li>
+                <li><a href="https://caniuse.com/" target="_blank">Can I Use</a> - Compatibilidade de recursos CSS</li>
+                <li><a href="https://specificity.keegan.st/" target="_blank">Specificity Calculator</a> - Calculadora de especificidade</li>
+                <li><a href="https://cssreference.io/" target="_blank">CSS Reference</a> - Guia visual de propriedades CSS</li>
+                <li><a href="https://uigradients.com/" target="_blank">UI Gradients</a> - Gerador de gradientes</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Guia Completo de CSS - Domine a estilização web moderna e responsiva</p>
+        <p class="motivation">"CSS não é apenas sobre fazer coisas bonitas, é sobre criar experiências funcionais e acessíveis para todos."</p>
+        <p>Atualizado com as últimas especificações CSS3 e melhores práticas</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const completedCount = document.getElementById('completed-count');
+            
+            // Carregar progresso salvo
+            checkboxes.forEach(checkbox => {
+                const topic = checkbox.parentElement.textContent.trim();
+                if (localStorage.getItem(`css-${topic}`) === 'completed') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        localStorage.setItem(`css-${topic}`, 'completed');
+                    } else {
+                        localStorage.removeItem(`css-${topic}`);
+                    }
+                    updateProgress();
+                });
+            });
+            
+            function updateProgress() {
+                const total = checkboxes.length;
+                const completed = document.querySelectorAll('.checkbox:checked').length;
+                const percentage = Math.round((completed / total) * 100);
+                
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '% Concluído';
+                completedCount.textContent = completed + '/' + total + ' tópicos';
+                
+                // Efeito de confete quando completar 100%
+                if (percentage === 100) {
+                    celebrate();
+                }
+            }
+            
+            function celebrate() {
+                // Efeito visual simples de celebração
+                progressBar.style.background = "linear-gradient(90deg, #27ae60, #2ecc71, #27ae60)";
+                
+                // Criar elementos de confete
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                    }, i * 100);
+                }
+            }
+            
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.background = getRandomColor();
+                confetti.style.top = '0';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.borderRadius = '50%';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '9999';
+                document.body.appendChild(confetti);
+                
+                // Animação
+                const animation = confetti.animate([
+                    { top: '0', transform: 'rotate(0deg)' },
+                    { top: window.innerHeight + 'px', transform: 'rotate(360deg)' }
+                ], {
+                    duration: 2000 + Math.random() * 3000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)'
+                });
+                
+                animation.onfinish = () => {
+                    confetti.remove();
+                };
+            }
+            
+            function getRandomColor() {
+                const colors = ['#3498db', '#e74c3c', '#f1c40f', '#2ecc71', '#9b59b6', '#1abc9c', '#34495e'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

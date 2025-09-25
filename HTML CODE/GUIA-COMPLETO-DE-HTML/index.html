@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo de HTML</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .progress-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--success));
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .topic-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .topic-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .topic-card h3::before {
+            content: "•";
+            color: var(--secondary);
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .topic-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .topic-card li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .topic-card li::before {
+            content: "✓";
+            color: var(--success);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .level {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        .beginner {
+            background-color: #e1f5fe;
+            color: #01579b;
+        }
+        
+        .intermediate {
+            background-color: #e8f5e9;
+            color: #1b5e20;
+        }
+        
+        .advanced {
+            background-color: #fce4ec;
+            color: #880e4f;
+        }
+        
+        .checkbox {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .resources {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .resources h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .resources ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .resources li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .resources a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .resources a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guia Completo para Dominar HTML</h1>
+        <p class="subtitle">Tudo que você precisa aprender, desde o básico até tópicos avançados</p>
+    </header>
+    
+    <div class="container">
+        <div class="progress-container">
+            <h2>Seu Progresso no Domínio do HTML</h2>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <div class="progress-text">
+                <span id="progress-text">0% Concluído</span>
+                <span id="completed-count">0/96 tópicos</span>
+            </div>
+        </div>
+        
+        <div class="topics-grid">
+            <!-- Fundamentos do HTML -->
+            <div class="topic-card">
+                <h3>Fundamentos do HTML <span class="level beginner">Iniciante</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> O que é HTML e sua história</li>
+                    <li><input type="checkbox" class="checkbox"> Estrutura básica de um documento HTML</li>
+                    <li><input type="checkbox" class="checkbox"> Tags, elementos e atributos</li>
+                    <li><input type="checkbox" class="checkbox"> DOCTYPE e sua importância</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos de cabeçalho (head)</li>
+                    <li><input type="checkbox" class="checkbox"> Comentários em HTML</li>
+                    <li><input type="checkbox" class="checkbox"> Caracteres especiais e entidades HTML</li>
+                    <li><input type="checkbox" class="checkbox"> Validação de código HTML</li>
+                </ul>
+            </div>
+            
+            <!-- Elementos de Texto -->
+            <div class="topic-card">
+                <h3>Elementos de Texto <span class="level beginner">Iniciante</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Títulos (h1 a h6)</li>
+                    <li><input type="checkbox" class="checkbox"> Parágrafos (p)</li>
+                    <li><input type="checkbox" class="checkbox"> Quebras de linha (br) e linhas horizontais (hr)</li>
+                    <li><input type="checkbox" class="checkbox"> Formatação de texto (strong, em, mark, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Citações (blockquote, q, cite)</li>
+                    <li><input type="checkbox" class="checkbox"> Código (code, pre)</li>
+                    <li><input type="checkbox" class="checkbox"> Listas ordenadas (ol), não ordenadas (ul) e de definição (dl)</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos de ênfase (strong, em) vs. estilo (b, i)</li>
+                </ul>
+            </div>
+            
+            <!-- Links e Navegação -->
+            <div class="topic-card">
+                <h3>Links e Navegação <span class="level beginner">Iniciante</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Elemento âncora (a) e atributo href</li>
+                    <li><input type="checkbox" class="checkbox"> Links absolutos vs. relativos</li>
+                    <li><input type="checkbox" class="checkbox"> Links para e-mail e telefone</li>
+                    <li><input type="checkbox" class="checkbox"> Links para seções da mesma página</li>
+                    <li><input type="checkbox" class="checkbox"> Atributo target para abrir links em nova janela</li>
+                    <li><input type="checkbox" class="checkbox"> Atributo rel (nofollow, noopener, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento nav para navegação principal</li>
+                </ul>
+            </div>
+            
+            <!-- Imagens e Multimídia -->
+            <div class="topic-card">
+                <h3>Imagens e Multimídia <span class="level beginner">Iniciante</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Elemento img e atributos src, alt</li>
+                    <li><input type="checkbox" class="checkbox"> Formatos de imagem (JPEG, PNG, GIF, SVG, WebP)</li>
+                    <li><input type="checkbox" class="checkbox"> Imagens responsivas (srcset, sizes)</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento picture para art direction</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos audio e video</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento figure e figcaption</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento canvas para gráficos</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento svg para gráficos vetoriais</li>
+                </ul>
+            </div>
+            
+            <!-- Tabelas -->
+            <div class="topic-card">
+                <h3>Tabelas <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Estrutura básica de tabelas (table, tr, td)</li>
+                    <li><input type="checkbox" class="checkbox"> Cabeçalhos de tabela (th)</li>
+                    <li><input type="checkbox" class="checkbox"> Agrupamento de linhas (thead, tbody, tfoot)</li>
+                    <li><input type="checkbox" class="checkbox"> Mesclagem de células (colspan, rowspan)</li>
+                    <li><input type="checkbox" class="checkbox"> Legenda de tabela (caption)</li>
+                    <li><input type="checkbox" class="checkbox"> Atributos de acessibilidade para tabelas</li>
+                </ul>
+            </div>
+            
+            <!-- Formulários -->
+            <div class="topic-card">
+                <h3>Formulários <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Elemento form e atributos action, method</li>
+                    <li><input type="checkbox" class="checkbox"> Campos de entrada (input) e seus tipos</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos textarea, select, option, optgroup</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos label e sua associação com inputs</li>
+                    <li><input type="checkbox" class="checkbox"> Agrupamento de campos (fieldset, legend)</li>
+                    <li><input type="checkbox" class="checkbox"> Validação de formulários HTML5</li>
+                    <li><input type="checkbox" class="checkbox"> Atributos placeholder, required, pattern</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento datalist para sugestões</li>
+                    <li><input type="checkbox" class="checkbox"> Elemento output para resultados</li>
+                    <li><input type="checkbox" class="checkbox"> Upload de arquivos (input type="file")</li>
+                </ul>
+            </div>
+            
+            <!-- HTML Semântico -->
+            <div class="topic-card">
+                <h3>HTML Semântico <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Elementos semânticos (header, footer, main, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos section, article, aside</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos de ênfase semântica (mark, time, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos de detalhes (details, summary)</li>
+                    <li><input type="checkbox" class="checkbox"> Microdados e schema.org</li>
+                    <li><input type="checkbox" class="checkbox"> ARIA roles e atributos para acessibilidade</li>
+                    <li><input type="checkbox" class="checkbox"> Estrutura semântica para SEO</li>
+                </ul>
+            </div>
+            
+            <!-- HTML Avançado -->
+            <div class="topic-card">
+                <h3>HTML Avançado <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> API de Histórico do Navegador</li>
+                    <li><input type="checkbox" class="checkbox"> Web Components (Custom Elements, Shadow DOM)</li>
+                    <li><input type="checkbox" class="checkbox"> Templates HTML (template element)</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos de mídia avançados (track para legendas)</li>
+                    <li><input type="checkbox" class="checkbox"> API de Geolocalização</li>
+                    <li><input type="checkbox" class="checkbox"> API de Armazenamento (localStorage, sessionStorage)</li>
+                    <li><input type="checkbox" class="checkbox"> Web Workers para processamento em segundo plano</li>
+                    <li><input type="checkbox" class="checkbox"> Service Workers para recursos offline</li>
+                    <li><input type="checkbox" class="checkbox"> Web Sockets para comunicação em tempo real</li>
+                </ul>
+            </div>
+            
+            <!-- Acessibilidade -->
+            <div class="topic-card">
+                <h3>Acessibilidade (A11y) <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Atributos alt para imagens</li>
+                    <li><input type="checkbox" class="checkbox"> Estrutura de cabeçalhos correta</li>
+                    <li><input type="checkbox" class="checkbox"> Atributos ARIA (aria-label, aria-hidden, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Navegação por teclado (tabindex)</li>
+                    <li><input type="checkbox" class="checkbox"> Elementos semânticos para leitores de tela</li>
+                    <li><input type="checkbox" class="checkbox"> Contrastes de cores adequados</li>
+                    <li><input type="checkbox" class="checkbox"> Formulários acessíveis</li>
+                    <li><input type="checkbox" class="checkbox"> Testes com leitores de tela</li>
+                </ul>
+            </div>
+            
+            <!-- SEO e Meta Tags -->
+            <div class="topic-card">
+                <h3>SEO e Meta Tags <span class="level intermediate">Intermediário</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Meta tags essenciais (viewport, charset, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Meta tags para SEO (description, keywords)</li>
+                    <li><input type="checkbox" class="checkbox"> Open Graph para redes sociais</li>
+                    <li><input type="checkbox" class="checkbox"> Twitter Cards para Twitter</li>
+                    <li><input type="checkbox" class="checkbox"> Estrutura de dados (JSON-LD, Microdata)</li>
+                    <li><input type="checkbox" class="checkbox"> Sitemaps XML</li>
+                    <li><input type="checkbox" class="checkbox"> Robots.txt</li>
+                    <li><input type="checkbox" class="checkbox"> Canonical URLs</li>
+                </ul>
+            </div>
+            
+            <!-- Performance e Otimização -->
+            <div class="topic-card">
+                <h3>Performance e Otimização <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Carregamento assíncrono e diferido de scripts</li>
+                    <li><input type="checkbox" class="checkbox"> Pré-carregamento de recursos (preload, prefetch)</li>
+                    <li><input type="checkbox" class="checkbox"> Imagens lazy loading (loading="lazy")</li>
+                    <li><input type="checkbox" class="checkbox"> Minimização e compressão de HTML</li>
+                    <li><input type="checkbox" class="checkbox"> Cache de recursos</li>
+                    <li><input type="checkbox" class="checkbox"> Critical Rendering Path otimizado</li>
+                    <li><input type="checkbox" class="checkbox"> Uso eficiente de iframes</li>
+                </ul>
+            </div>
+            
+            <!-- Integração com Outras Tecnologias -->
+            <div class="topic-card">
+                <h3>Integração com Outras Tecnologias <span class="level advanced">Avançado</span></h3>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Integração com CSS (classes, IDs, seletores)</li>
+                    <li><input type="checkbox" class="checkbox"> Integração com JavaScript (eventos, DOM)</li>
+                    <li><input type="checkbox" class="checkbox"> Frameworks JavaScript (React, Vue, Angular)</li>
+                    <li><input type="checkbox" class="checkbox"> APIs do navegador (Geolocation, Canvas, etc.)</li>
+                    <li><input type="checkbox" class="checkbox"> Web APIs (Fetch, History, Storage)</li>
+                    <li><input type="checkbox" class="checkbox"> PWA (Progressive Web Apps)</li>
+                    <li><input type="checkbox" class="checkbox"> AMP (Accelerated Mobile Pages)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="resources">
+            <h2>Recursos Recomendados para Aprender HTML</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">MDN Web Docs - HTML</a> - Documentação completa e atualizada</li>
+                <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML Tutorial</a> - Tutoriais interativos</li>
+                <li><a href="https://html.spec.whatwg.org/" target="_blank">HTML Living Standard</a> - Especificação oficial do HTML</li>
+                <li><a href="https://web.dev/learn/html/" target="_blank">Google Web Fundamentals - HTML</a> - Guia com melhores práticas</li>
+                <li><a href="https://www.freecodecamp.org/learn/responsive-web-design/" target="_blank">freeCodeCamp - Responsive Web Design</a> - Curso gratuito</li>
+                <li><a href="https://htmlreference.io/" target="_blank">HTML Reference</a> - Referência visual de elementos HTML</li>
+                <li><a href="https://caniuse.com/" target="_blank">Can I Use</a> - Compatibilidade de recursos HTML</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Guia Completo de HTML - Domine todos os aspectos da linguagem de marcação web</p>
+        <p>Atualizado para refletir as melhores práticas e recursos HTML5 modernos</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const completedCount = document.getElementById('completed-count');
+            
+            // Carregar progresso salvo
+            checkboxes.forEach(checkbox => {
+                const topic = checkbox.parentElement.textContent.trim();
+                if (localStorage.getItem(topic) === 'completed') {
+                    checkbox.checked = true;
+                }
+                
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        localStorage.setItem(topic, 'completed');
+                    } else {
+                        localStorage.removeItem(topic);
+                    }
+                    updateProgress();
+                });
+            });
+            
+            function updateProgress() {
+                const total = checkboxes.length;
+                const completed = document.querySelectorAll('.checkbox:checked').length;
+                const percentage = Math.round((completed / total) * 100);
+                
+                progressBar.style.width = percentage + '%';
+                progressText.textContent = percentage + '% Concluído';
+                completedCount.textContent = completed + '/' + total + ' tópicos';
+            }
+            
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
