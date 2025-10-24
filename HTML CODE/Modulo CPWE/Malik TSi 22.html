@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios Parte 1</title>
+    <style>
+
+        /*Rolagem suave*/
+        html{
+            scroll-behavior: smooth;
+        }
+        
+        /*Barra azul para dividir as partews*/
+        .parte{
+            width: 500px;
+            height:30px;
+            margin-top: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 30px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            
+            
+        }
+
+        /*estilo dos Exercicios*/
+        .exercicio{
+            text-decoration: underline;
+            margin-bottom: 20px;
+        }
+        
+        /*Linha horizontal que separa exercicios*/
+        .horizontal{
+            background-color: black;
+            height: 3px;
+        }
+
+        .hrexer2{
+            background-color: blue;
+            width: 150px;
+            height: 20px;
+        }
+
+        .container img{
+            float: left;
+            width: 170px;
+            margin-right: 8px;
+        }
+        
+        /*classe para divs clear*/
+        .clear{
+            clear: both;
+        }
+
+        
+        /*Tabela*/
+        table{
+            width: 300px;
+            border-collapse: separate;
+            border-spacing: 2px;
+            border: 2px solid grey;
+            background-color: white;
+            margin: auto;
+            padding: 2px;
+        }
+
+        th, td{
+           text-align: center; 
+           background-color: yellow;
+           padding: 3px;
+        }
+
+        .celulas-branco{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!--INcico da Parte 1-->
+    <h1 class="parte">
+        Parte 1
+    </h1>
+
+    <!--Inicio de Exercicio 1-->
+    <p class="exercicio" id="1">
+    Exercicio 1:
+    </p>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+    <hr class="horizontal">
+    <!--FIm do Exercicio 1-->
+
+    <!--Exercicio 2-->
+    <p class="exercicio" id="2">
+        Exercicio 2:
+    </p>
+    <hr class="hrexer2">
+    <p>Mudanças de linha:</p>
+    <p>
+        "No mundo dos negócios todos são pagos com duas moedas: Dinheiro e experiência. Agarre a experiência primeiro, o dinheiro virá depois." --Harold Geneen
+    </p>
+    <p>
+        "Ha Homens que lutam um dia e sao bons.<br>Ha outros que lutam muitos dias e sao melhores.<br>Mas ha os lutam toda a vida, e estes sao imprescindiveis."
+    </p>
+    <p> --Bertold Brecht</p>
+    <hr class="hrexer2">
+    <!--Fim do exercicio 2-->
+
+    <hr class="horizontal">
+
+    <!--Inicio de exercicio 3-->
+    <p class="exercicio" id="3">
+        Exercicio 3:
+    </p>
+    <h3 style="text-align:center;">
+        Quebras
+    </h3>
+    <p>Este texto aparece antes da imagem, a qual vai ser alinhada á esquerda.</p>
+    
+    <!--Imagem do quebras-->
+    <div class="container">    
+        <img src="wallpaperflare.com_wallpaper (3).jpg" alt="imagem de cachorro">
+        <p>
+            Esta frase esta na mesma linha da imagem pelo que fica á sua direita
+        </p>
+    </div>
+    <div class="clear"></div>
+    <p>O parâmetro de limpeza faz ultrapassar a imagem.</p>
+    <pre>
+        Texto Pré-formatado
+        Este bocado     de texto tem muitos espaços
+    </pre>
+
+    <p>e mudanças de linha.</p>
+    <pre>
+        C     I 
+         U     N
+          R     T 
+           S     E 
+            O     R 
+                   N 
+             D      E 
+              E      T 
+    </pre>
+    <!--Fim de Exercicio 3-->
+    
+    <hr class="horizontal">
+
+    <!--Inicio de exercicio 4-->
+    <p class="exercicio " id="4">Exercicio 4:</p>
+    <h3>
+        <strong> Divisões, citações e endereços</strong>
+    </h3>
+    <div class="container1">
+        <p>
+        "No mundo dos negócios todos são pagos com duas moedas: Dinheiro e experiência. Agarre a experiência primeiro, o dinheiro virá depois." --Harold Geneen
+        </p>
+    </div>
+    <hr>
+    <div class="container1">
+        <p>
+        "Ha Homens que lutam um dia e sao bons.<br>Ha outros que lutam muitos dias e sao melhores.<br>Mas ha os lutam toda a vida, e estes sao imprescindiveis."
+    </p>
+    <p> --Bertold Brecht</p>
+    </div>
+    <hr style="width: 200px; float: left;">
+    <div class="clear"></div>
+    <address>
+        Tito Carlos S. Vieira <br>
+        FEUP <br>
+        Rua Dr. Roberto Frias, S/N <br>
+        4200 - 465 Porto
+    </address>
+    <hr style="width: 200px; float: left;">
+    <div class="clear"></div>
+    <!--Fim de exercicio 4-->
+
+    <hr class="horizontal">
+    <!--Inicio de Exercicio 5-->
+    <p class="exercicio" id="5">
+        Exercicio 5:
+    </p>
+    <p>
+        <strong>Algumas marcas (em bold por exemplo !!!)</strong>
+    </p>
+    <p>
+        <i>Este parágrafro está em itálico.</i>
+    </p>
+    <p>
+        <u>Parágrafo sublinhado...</u>
+    </p>
+    <p>
+        <big>Utilizando a marca big </big> <small>e a marca small</small>
+    </p>
+    <p>
+        Mais uma marca que permite apresentar experssões do género X <sup>2</sup> e X <sub>2</sub>
+    </p>
+    <p>
+        Exemplo de caracteres especiais: <br>
+        à á ã ç é è õ
+    </p>
+    <!--Fim de Exercicio 5-->
+
+    <hr class="horizontal">
+
+    <!--Inicio de Exercicio 6-->
+    <p class="exercicio" id="6"> Exercicio 6:</p>
+    <strong>Fontes</strong>
+    <p style="font-family: 'Times New Roman', Times, serif; color: green;">
+        "No mundo dos negócios todos são pagos com duas moedas: Dinheiro e experiência. Agarre a experiência primeiro, o dinheiro virá depois." --Harold Geneen
+    </p>
+    <p style="font-family: arial; font-size: 19px; ">
+        <span style="color: red;">"Ha Homens que lutam um dia e sao bons.<br>Ha outros que lutam muitos dias e sao melhores</span>.<br><span style="color: blue;">Mas ha os lutam toda a vida, e estes sao imprescindiveis."
+        </span>
+    </p>
+    <p style="color:blue;font-family:arial; font-size: 19px;">
+        --Bertold Brecht
+    </p>
+    <!--Fim do Exercicio 6-->
+
+    <hr class="horizontal">
+    <!--Inicio de Exercicio 7-->
+    <p class="exercicio" id="7">Exercicio 7:</p>
+    <table>
+        <thead>
+            <tr>
+                <th class="celulas-branco"></th>
+                <th class="celulas-branco"></th>
+                <th class="demografia" colspan="3">Demografia</th>
+            </tr>
+            <tr>
+                <th class="celulas-branco"></th>
+                <th class="celulas-branco"></th>
+                <th>Homens</th>
+                <th>Mulheres</th>
+                <th>Professor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="turmas" rowspan="4">Turmas</td>
+                <td><b>A</b></td>
+                <td>20</td>
+                <td>5</td>
+                <td>Joao Ferreira</td>
+            </tr>
+            <tr>
+                
+                <td><b>B</b></td>
+                <td>21</td>
+                <td>3</td>
+                <td>idem</td>
+            </tr>
+            <tr>
+                
+                <td><b>C</b></td>
+                <td>25</td>
+                <td>2</td>
+                <td>Maria joao</td>
+            </tr>
+            <tr>
+                
+                <td><b>D</b></td>
+                <td>20</td>
+                <td>4</td>
+                <td>idem</td>
+            </tr>
+            <tr>
+                <td class="total" colspan="2">Total</td>
+                
+                <td>86</td>
+                <td>4</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="text-align: center;">Tabela 1. Estatísticas</p>
+
+    <!--FIm de Exercicio 7-->
+    <hr class="horizontal" id="8">
+
+    <!--Inicio de Exercicio 8-->
+    <p class="exercicio">Exercicio 8:</p>
+    <a href="#1">Exercicio n <sup>o</sup>1</a> <br>
+    <a href="#2">Exercicio n <sup>o</sup>2</a> <br>
+    <a href="#3">Exercicio n <sup>o</sup>3</a> <br>
+    <a href="#4">Exercicio n <sup>o</sup>4</a> <br>
+    <a href="#5">Exercicio n <sup>o</sup>5</a> <br>
+    <a href="#6">Exercicio n <sup>o</sup>6</a> <br>
+    <a href="#7">Exercicio n <sup>o</sup>7</a> <br>
+    <a href="#8">Exercicio n <sup>o</sup>8</a>
+    <!--Fim do Exercicio 8-->
+
+    <hr class="horizontal">
+
+   <!--Parte 2-->
+    
+</body>
+</html>

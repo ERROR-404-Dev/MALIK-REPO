@@ -1,12 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.logo, img{
+    width: 300px;
+    position: absolute;
+    background-color: pink;
+    border: 20px double blue;
+}
+
 h1{
     background-color: grey;
-    
+    margin-bottom: 20px;
+    margin-left: 10px;
+    text-align: center;
 }
 
-.centro{
-    background-color: grey;
+p{
+    margin-bottom: 15px;
+    margin-left: 10px;
 }
 
-.leftimage{
-    
-}

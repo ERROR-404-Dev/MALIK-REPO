@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Perfil Simples</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: blue;
+        }
+
+        .container{
+            width: 50%;
+            height: 500px;
+            
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 40px;
+            padding: 10px;
+        }
+
+        
+        .cartão{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            border: 2px double gray;
+            overflow: hidden;
+            
+        }
+        .cartão img{
+            
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nome{
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid blue;
+        }
+        .descrição{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cartão">
+            <a href="wallpaperflare.com_wallpaper (3).jpg" target="_blank">
+                <img src="wallpaperflare.com_wallpaper (3).jpg" alt="Foto Perfil">
+            </a>
+        </div>
+        <div class="descrição">
+            <h2 class="nome">Malik Edson Mangue</h2>
+            <p>Sou estudante de informatica fazendo o meu segundo nivel no instuto de transportes e comunicações</p>
+        </div>
+    </div>
+</body>
+</html>
