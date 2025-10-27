@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carassoel de imagem</title>
+    <style>
+        .div-imagem{
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .div-imagem img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .div-imagem img .active{
+            opacity: 1;
+        }
+
+    </style>
+    <script>
+        const imgs =
+        document.querySelectorAll(".div-imagem img");
+        let i = 0;
+
+        setInterval(() => {
+            imgs[i].classList.remove("active")
+            i = (i + 1) % imgs.length;
+            imgs[i].classList.add("active")
+            
+        }, interval);
+    </script>
+    
+</head>
+<body>
+    <div class="div-imagem">
+        <img src="image.png" alt="" class="active">
+        <img src="image.png" alt="">
+        <img src="image.png" alt="">
+        <img src="image.png" alt="">
+        <img src="image.png" alt="">
+    </div>
+</body>
+</html>
