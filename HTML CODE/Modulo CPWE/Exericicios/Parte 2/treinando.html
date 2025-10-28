@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-decoration: none;
+        }
+
+        .navbar{
+            background: yellowgreen;
+            padding: 19px;
+        }
+
+        .div-nav-bar{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: static;
+        }
+
+        .logo-name{
+            font-size: 23px;
+        }
+
+        .items-navbar {
+            list-style: none;
+            display:flex;
+            gap: 40px;
+            margin: 0 19px;
+            
+        }
+
+        li a {
+            color: white;
+            font-size: 15px;
+            
+        }
+
+        li:hover{
+            border-bottom: 2px solid white;
+        }
+
+        button{
+            border-radius: 20%;
+            background-color: black;
+            color: white;
+            width: 62px;
+            transition: 0.3ms;
+        }
+
+        button:hover{
+            background-color: white;
+            color: black;
+            width: 65px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+        <nav class="navbar">
+            <div class="div-nav-bar">
+                <div class="logo-name">Malik Edson Mangue</div>
+                <ul class="items-navbar">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <button><a href="">Sign in</a></button>
+                <button><a href="">Sign up</a></button>
+                </ul>
+                
+            </div>
+        </nav>
+
+</body>
+</html>
