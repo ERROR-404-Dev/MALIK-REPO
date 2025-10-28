@@ -1,5 +1,6 @@
 
 
+
 .container {
     position: absolute;
     top:50%;
@@ -31,4 +32,26 @@
 
 .texto1 {
     justify-self: flex-start;
+}
+h1{
+    position: relative;
+    width: max-content;
+}
+
+
+
+h1::before{
+    content: " ";
+    background-image: linear-gradient(90deg, blue, violet, pink);
+    position: absolute;
+    bottom: 0;
+    top: 33px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    transition: 100ms;
+}
+
+h1:hover::after{
+    width: 0;
 }

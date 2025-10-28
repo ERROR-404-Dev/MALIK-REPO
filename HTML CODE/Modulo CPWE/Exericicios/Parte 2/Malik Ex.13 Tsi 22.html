@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox com navbar</title>
+    <style>
+        *{
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header{
+            background: rgb(141, 218, 141);
+            padding: 0 15px;
+            height: 50px;
+            
+        }
+
+        .nav-bar{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            
+        }
+
+        .nav-bar ul{
+            display: flex;
+        
+        }
+
+        li{
+            list-style: none;
+            margin: 0px 20px;
+            
+        }
+
+        ul li{
+            
+            border: 1px solid black;
+            border-radius: 10%;
+            padding: 3px 7px;
+        
+        }
+
+        a{
+            color: white;
+        }
+
+        li:hover{
+            border:none;
+            border-bottom: 1px solid white;
+        }
+
+        button a{
+            background-color: 0;
+            color:black;
+        }
+
+        .container figure{
+            display: flex;
+            justify-content: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="name-logo">Malik Edson MAngue</div>
+            <ul>
+                <li class="item1"><a href="#">Home</a></li>
+                <li class="item2"><a href="#">ABout</a></li>
+                <li class="item3"><a href="#">Contact</a></li>
+                <button title="Sign up btn"><a href="#">Sign up</a></button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Texto inicial</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur dicta doloremque explicabo laborum facilis accusantium ullam? Aliquid id excepturi, error voluptatibus dolore magni, aperiam ratione adipisci ipsa molestiae recusandae quod.
+            </p>
+            <figure>
+                <img src="image.png" alt="">
+                <figcaption>Exemplo de imagem</figcaption>
+            </figure>
+        </div>
+    </main>
+</body>
+</html>
