@@ -1,36 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu Portifolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!--link de boxicons css-->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
 
     <!--link de remixicons-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"   rel="stylesheet"/>
-</head>
-<body>
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <nav class="navegacao">
-        <ul class="menu">
-            <li><a class="menu-links" href="#Inicio">Inicio</a></li>
-            <li><a class="menu-links" href="#Sobre">Sobre Min</a></li>
-            <li><a class="menu-links" href="#Projetos">Meus projetos</a></li>
-            <li><a class="menu-links" href="#Contactos">Contacto</a></li>
-        </ul>
+      <ul class="menu">
+        <li><a class="menu-links" href="#Inicio">Inicio</a></li>
+        <li><a class="menu-links" href="#Sobre">Sobre Min</a></li>
+        <li><a class="menu-links" href="#Projetos">Meus projetos</a></li>
+        <li><a class="menu-links" href="#Contactos">Contacto</a></li>
+      </ul>
     </nav>
 
-    <main>
-        <div>
-            <img src="imagems/unnamed (2).jpg" alt="alternativa">
-            <h1>Meu nome é Malik</h1>
-            <p> Sou um estudante do instituto de transporte e comunicacoes estudo programacao, redes de computadores e hardware, toco instrumento musical e tenho uma mente criativa
-
-        </p>
-        </div>
+    <main class="cabecalho">
+      <img
+        src="imagems/imagem-central.jpg"
+        alt="alternativa"
+        class="imagem-central"
+      />
+      <h1>Meu nome é Malik</h1>
+      <p class="descricao-perfil">Estudante do ITC e Aprendiz Programdor</p>
     </main>
-</body>
+
+    <section id="Sobre" class="Sobre-Min">
+      <h2 class="sobre-titulo">Sobre</h2>
+      <div class="Sobre-Caixa">
+        <p class="sobre-paragrafo">
+          Sou Malik Edson Mangue, uma pessoa movida por curiosidade,
+          criatividade e vontade constante de aprender. Tenho grande interesse
+          em tecnologia, programação, design e comunicação, e busco sempre
+          desenvolver novas habilidades para me tornar cada vez mais completo e
+          capaz de resolver desafios do mundo real. Sou dedicado, gosto de
+          trabalhar em equipa e acredito que a disciplina e a inovação são
+          essenciais para alcançar grandes resultados. Meu objetivo é construir
+          uma carreira sólida, contribuindo com projetos que tenham impacto
+          positivo e que me permitam evoluir continuamente.
+        </p>
+      </div>
+    </section>
+
+    <section class="projetos">
+      <h2 class="projeto-titulo">Meus Projetos</h2>
+      <div class="projeto-caixa">
+          <div class="projeto-card">
+            <img src="imagems/projeto Mirrior Fashion.png" alt="" class="projeto-imagem" />
+            <div class="caixa-texto-projeto">
+                <h3 class="info-projeto">Projeto Mirrior Fashion</h3>
+                <p class="paragrafo-projeto">Este é um projeto feito com a linguagem HTML e CSS</p>
+            </div>
+          </div>
+      
+      
+          <div class="projeto-card">
+            <img src="imagems/projeto Mirrior Fashion.png" alt="" class="projeto-imagem" />
+            <div class="caixa-texto-projeto">
+                <h3 class="info-projeto">Projeto Mirrior Fashion</h3>
+                <p class="paragrafo-projeto">Este é um projeto feito com a linguagem HTML e CSS</p>
+            </div>
+          </div>
+      
+      
+          <div class="projeto-card">
+            <img src="imagems/projeto Mirrior Fashion.png" alt="" class="projeto-imagem" />
+            <div class="caixa-texto-projeto">
+                <h3 class="info-projeto">Projeto Mirrior Fashion</h3>
+                <p class="paragrafo-projeto">Este é um projeto feito com a linguagem HTML e CSS</p>
+            </div>
+          </div>
+          
+      </div>
+    </section>
+  </body>
 </html>
